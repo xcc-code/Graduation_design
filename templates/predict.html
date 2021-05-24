@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}留言互动{% endblock %}
+{% block head %}
+     <link rel="stylesheet" defer="true" href="{{ url_for('static',filename='css/predict.css') }}">
+        {# 导入echarts #}
+    <script defer="true" type="text/javascript" src="{{ url_for('static',filename='js/echarts.js') }}"></script>
+    <script defer="true" type="text/javascript" src="{{ url_for('static',filename='js/predict.js') }}"></script>
+        {# 导入layui框架 #}
+    <link rel="stylesheet" href="{{ url_for('static',filename='layui/css/layui.css') }}">
+    <script src="{{ url_for('static',filename='layui/layui.js') }}"></script>
+
+
+{% endblock %}
+{% block main %}
+    <img id="top" src="{{ url_for('static',filename='images/liuyan_bg.jpg') }}">
+    <div id="predict">
+        <span id="sp">~~~~~~粮食产量预测~~~~~~</span>
+        <div id="content1">{# 预测表单 #}
+            <span id="sp1">说明：<br>本预测以近十年粮食<b style="color:red">播种面积</b>、<b style="color:red">受灾面积</b>与<b style="color:red">有效灌溉面积</b>为自变量(输入),以<b style="color:red">产量</b>为因变量(输出),请您选择右侧您所需要的算法进行粮食产量预测！</span>
+        </div>
+        <div id="content2">
+            <span id="sp2">请选择预测算法：</span>
+            <div id="right">
+                <form onsubmit="return false"> {# 使用Ajax传输数据，此处组织表单自动提交 #}
+                    <select name="sel1" id="sel1">
+                        <option value="GM(1,1)" selected>灰色模型(GM(1,1))</option>
+{#                        <option value="MLR">多元线性回归(MLR)</option>#}
+                        <option value="RF">随机森林(RF)</option>
+                    </select>
+                    <input id="search" type="button" onclick="return click1()" value="点击预测"> {# 设置ajax添加点击事件#}
+                </form>
+            </div>
+        </div>
+    <div id="content3">
+        <span id="sp3">原始数据：</span>
+        <div id="table_content">
+            <table id="table" lay-filter="test"></table>
+        </div>
+        <span id="sp4">预测结果：</span>
+        <div id="result">
+            <h1 id="h1" style="font-size: 30px;text-align:center;color: red;position: relative;top: -50px;height: 0px;"></h1>
+            <h2>单位：万吨</h2>
+        </div>
+
+    </div>
+    <div id="content4"></div>
+    </div>
+{% endblock %}
+

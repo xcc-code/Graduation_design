@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" defer="true" href="{{ url_for('static',filename='css/agriculturedata.css') }}">
+    <script defer="true" src="{{ url_for('static',filename='js/echarts.js') }}"></script>
+    <script defer="true" src="{{ url_for('static',filename='js/china.js') }}"></script>
+    <script defer="true" type="text/javascript"  src="{{ url_for('static',filename='js/agriculturedata.js') }}"></script>
+            {# 导入layui框架 #}
+    <link rel="stylesheet" href="{{ url_for('static',filename='layui/css/layui.css') }}">
+    <script src="{{ url_for('static',filename='layui/layui.js') }}"></script>
+{% endblock %}
+
+{% block title %}农业数据{% endblock %}
+
+{% block main %}
+    <img id="top" src="{{ url_for('static',filename='images/head_bg.png') }}">   {# 放置最上面的横条#}
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="echart1"></div> {# 柱状图  全国粮食人均占有量2010~21年  数据不变#}
+    <div id="echart2"></div> {# 饼图  2018年各省粮食产量 #}
+    <div id="echart3"></div> {# 折线图 展示2011-2020年产量、人均占有量、播种面积#}
+    <div id="echart4"><h1 id="text1">2020年小麦总产量<br><b style="color:#ea0606">13168万吨</b></h1></div> {# 显示2020年总产量数值：各省相加 #}
+    <div id="echart5"><h1 id="text2">2020年小麦总播种面积<br><b style="color:#ea0606">22711千公顷</b></h1></div> {# 显示2020年总播种面积数值：各省相加 #}
+    <div id="echart6"></div> {# 用来显示操作提示：带有超链接的词云图 ，具体有：小麦，大豆、玉米、稻谷等主要农作物，点击图片中元素就可以切换数据 #}
+    <div id="echart7"></div> {# 地图 显示2018年各省产量、播种面积、受灾情况 #}
+    <div id="echart8"></div> {# 动态柱状图 展示农作物10-19年各省产量动态变化 #}
+    <div id="echart9"></div> {# 地图  展示2018年各省灾情损失情况（千公顷）情况 #}
+    <div id="echart10"></div> {# 地图显示受灾情况 #}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{{username.username}}{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/userinfo.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/userinfo.js') }}"></script>
+{% endblock %}
+{% block main %}
+    <div class="change">
+        <h2>修改信息</h2>
+        <form method="POST" onsubmit="return false">{# 使用ajax向后端传送数据，因此这块必须添加属性onsubmit="return false"#}
+            <div class="change_box">
+                <!-- required就是不能为空 必须在css效果中有很大的作用 -->
+                <!-- 可以简写为required -->
+                <input type="text" name="username" id="username" required /><label>请输入新的用户名</label>
+            </div>
+            <div class="change_box">
+                <input type="password" name="password1" id="password1" required="required" /><label>请输入旧密码</label>
+            </div>
+            <div class="change_box">
+                <input type="password" name="password2" id="password2" required="required" /><label>请输入新密码</label>
+            </div>
+            <div class="a">
+                <input type="submit" onclick="check()" value="点击修改">
+                <input type="reset" value="点击清空">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </form>
+    </div>
+{% endblock %}

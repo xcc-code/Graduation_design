@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}-粮食安全分析系统</title>
+    {% block head %}{% endblock %}
+    <script type="text/javascript" defer="true" src="{{ url_for('static',filename='js/base.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.css">#}
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    {# 使用国内的cdn加速 #}
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.12.1/css/all.css">
+    <link defer="true" rel="shortcut icon"  href="#"/>
+</head>
+<body class="body">
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><img class="home_title" src="{{ url_for('static',filename='images/home_title1.jpg') }}"></header>
+        <ul>
+            <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i>首页</a></li>
+            <li><a href="{{ url_for('datafind') }}"><i class="fas fa-chart-pie"></i>数据查询</a></li>  <!--这里用来展示所有的表格数据-->
+            <li><a href="{{ url_for('agriculturedata') }}"><i class="fas fa-database"></i>数据可视化</a></li>  <!--这里用来数据可视化-->
+            <li><a href="{{ url_for('predict') }}"><i class="fas fa-chart-line"></i>数据预测</a></li>  <!--这里用来建立模型-->
+{#            <li><a href="{{ url_for('liuyan') }}"><i class="far fa-envelope"></i>留言互动</a></li>  <!--这里用来创建留言互动模块-->#}
+            {% if username %} {# 判断用户是否登录，则显示用户名和注销，没有登陆则显示登录和注册 #}
+                <li><a href="{{ url_for('userinfo') }}"><i class="fas fa-sign-in-alt"></i>{{ username.username }}</a></li>
+                <li><a href="{{ url_for('logout') }}"><i class="far fa-registered"></i>注销</a></li> {# 注销之后点击跳转到登陆页面 #}
+            {% else %} {# 如果没有登陆 #}
+                <li><a href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>登录</a></li>
+                <li><a href="{{ url_for('regist')}}"><i class="far fa-registered"></i>注册</a></li>
+            {% endif %} 
+
+        </ul>
+    </div>
+    <section class="section" id="section" height="">
+    <div class="calender calender1 calender2 calender3 calender4 calender5 calender6 calender7">
+        <h1>欢迎进入粮食安全分析系统{% block welcome %}{% endblock %}</h1>
+        <p id="currentDate"></p>
+    </div>
+    {% block main %}{% endblock %}
+    </section>
+</body>
+</html>

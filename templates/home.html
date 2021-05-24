@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/home.css') }}">
+    <script defer="true" src="{{ url_for('static',filename='js/echarts.js') }}"></script>
+    <script defer="true" src="{{ url_for('static',filename='js/echarts-gl.min.js') }}"></script>
+    <script defer="true" type="text/javascript" src="{{ url_for('static',filename='js/home.js') }}"></script>
+{% endblock %}
+
+{% block title %}首页{% endblock %}
+{% block main %}
+    <img id="top" src="{{ url_for('static',filename='images/head_bg.png') }}">   {# 放置最上面的横条#}
+    <div id="echart1"></div>
+    <div><span id="home1">欢迎登录,请点击左上角按钮查询您想要的信息......</span></div>
+{% endblock %}

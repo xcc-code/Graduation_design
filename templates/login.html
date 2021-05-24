@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}登录{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/login.js') }}"></script>
+{% endblock %}
+{% block main %}
+    <div class="login">
+        <h2>用户登录</h2>
+        <form method="POST" onsubmit="return false">{# 使用ajax向后端传送数据，因此这块必须添加属性onsubmit="return false"#}
+            <div class="login_box">
+                <!-- required就是不能为空 必须在css效果中有很大的作用 -->
+                <!-- 可以简写为required -->
+                <input type="text" name="email_user" id="email_user" required /><label>请输入邮箱账号</label>
+            </div>
+            <div class="login_box">
+                <input type="text" name="password1" id="code" required="required" /><label>请输入验证码</label>
+            </div>
+            <div class="login_box">
+                <input type="password" name="password1" id="password" required="required" /><label>请输入密码</label>
+            </div>
+            <div class="a">
+                <input type="submit" onclick="check1()" value="点击登录">
+                <input type="reset" value="点击清空">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </form>
+    <button type="button" id="btn_login" onclick="post_code_login()">点击获取验证码</button>
+    </div>
+{% endblock %}

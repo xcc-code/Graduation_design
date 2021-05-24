@@ -1,0 +1,51 @@
+.section{
+    /*background:url("../images/bg1.jpg") no-repeat;*/
+    -webkit-background-size: cover; /*使图片自适应窗口大小*/
+    background: #0B0000;
+}
+body{
+    position: fixed;
+}
+.calender2{
+    right: 800px !important;
+    top: 5px !important;
+    color: #9b97f0 !important;
+}
+lable #btn{
+    padding: 6px 12px;
+}
+#echart1{
+    width: 1920px;
+    height: 400px;
+}
+#top {
+    height: 70px;
+    color: #2027aa;
+    width: 1920px;
+}
+#echart1{
+    display: flex;
+    position: relative;
+    left: 90px;
+    /*top: 80px;*/
+    width: 1800px;
+    height: 900px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 3px solid rgba(25,186,139,.17);
+    -webkit-background-size: cover;
+    pointer-events:none /*设置不能被点击*/
+}
+#home1{
+    display: flex;
+    position: relative;
+    left: 450px;
+    top: -550px;
+    width: 1100px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 50px;
+    color: #e65858;
+}

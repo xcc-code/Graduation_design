@@ -1,0 +1,249 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#top{
+    height: 70px;
+    color: #2027aa;
+    width: 1920px;
+}
+.section{
+    background:url("../images/starfield.jpg") no-repeat;
+    -webkit-background-size: cover; /*使图片自适应窗口大小*/
+}
+lable #btn{
+    padding: 6px 12px;
+}
+.calender3{
+    /*right: 800px !important;*/
+    /*top: 0px !important;*/
+    font: 15px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+    right: 800px !important;
+    top: 5px !important;
+    color: #9b97f0 !important;
+}
+body{
+    position: fixed;
+}
+#datashow{
+    display: flex;
+    position: relative;
+    left: 345px;
+    top: 0px;
+    width: 1200px;
+    height: 850px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+}
+#top_left{
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: -2px;
+    width: 1600px;
+    height: 215px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 2px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+    background: #a6e1ec;
+}
+#top_right{
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: -2px;
+    width: 900px;
+    height: 215px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 2px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+    pointer-events:none;/*设置词云图不能被点击*/
+
+}
+#sp1{
+    display: flex;
+    position: relative;
+    left: 25px;
+    width: 80px;
+    top: 20px;
+    font-size: 20px;
+}
+#sp2{
+    display: flex;
+    position: relative;
+    left: 190px;
+    width: 30px;
+    top: -32px;
+    font-size: 15px;
+}
+#sp3{
+    display: flex;
+    position: relative;
+    left: 450px;
+    width: 80px;
+    top: -80px;
+    font-size: 20px;
+}
+#sp4{
+    display: flex;
+    position: relative;
+    left: 25px;
+    width: 100px;
+    top: -80px;
+    font-size: 20px;
+}
+#sp5{
+    display: flex;
+    position: relative;
+    left: 450px;
+    width: 80px;
+    top: -135px;
+    font-size: 20px;
+}
+#sp6{
+    display: flex;
+    position: relative;
+    left: 25px;
+    width: 100px;
+    top: -135px;
+    font-size: 20px;
+}
+#sel1{
+    display: flex;
+    position: relative;
+    left: 100px;
+    width: 80px;
+    top: -6px;
+    font-size: 15px;
+    height: 28px;
+}
+#sel2{
+    display: flex;
+    position: relative;
+    left: 240px;
+    width: 80px;
+    top: -52px;
+    font-size: 15px;
+    height: 28px;
+}
+#sel3{
+    display: flex;
+    position: relative;
+    left: 550px;
+    width: 80px;
+    top: -106px;
+    font-size: 15px;
+    height: 28px;
+}
+#sel4{
+    display: flex;
+    position: relative;
+    left: 135px;
+    width: 85px;
+    top: -106px;
+    font-size: 15px;
+    height: 28px;
+}
+#sel5 {
+    display: flex;
+    position: relative;
+    left: 550px;
+    width: 85px;
+    top: -160px;
+    font-size: 15px;
+    height: 28px;
+}
+#sel6{
+    display: flex;
+    position: relative;
+    left: 135px;
+    width: 105px;
+    top: -161px;
+    font-size: 15px;
+    height: 28px;
+}
+#search{
+    border-radius: 5px;
+    margin: 0px 5px;
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 32px;
+    font-size: 15px;
+    left: 260px;
+    top: -150px;
+    font-family: "microsoft yahei";
+    background-color: #fff;
+}
+#reset{
+    border-radius: 5px;
+    margin: 0px 5px;
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 32px;
+    font-size: 15px;
+    left: 380px;
+    top: -182px;
+    font-family: "microsoft yahei";
+    background-color: #fff;
+}
+#content{
+    display: flex;
+    position: absolute;
+    left: -2px;
+    top: 224px;
+    width: 765px;
+    height: 625px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+    /*background: #a6e1ec;*/
+}
+#table{
+    position: absolute;
+    width: 765px;
+    height: 625px;
+    color: #f9f8f4;
+}
+#right_1{
+    display: flex;
+    position: absolute;
+    left: 769px;
+    top: 220px;
+    width: 425px;
+    height: 309.5px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+    /*background: #a6e1ec;*/
+}
+#right_2{
+    display: flex;
+    position: absolute;
+    left: 769px;
+    top: 536px;
+    width: 425px;
+    height: 309px;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid rgba(245, 237, 237, 0.72);
+    -webkit-background-size: cover;
+    /*background: #a6e1ec;*/
+}
+/*.layui-table-cell{*/
+/*    height: 30px;*/
+/*}*/
+

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/datafind.css') }}">
+    {# 导入layui框架 #}
+    <link rel="stylesheet" href="{{ url_for('static',filename='layui/css/layui.css') }}">
+    <script src="{{ url_for('static',filename='layui/layui.js') }}"></script>
+    <script defer="true" type="text/javascript" src="{{ url_for('static',filename='js/datafind.js') }}"></script>
+    <script defer="true" type="text/javascript" src="{{ url_for('static',filename='js/echarts.js') }}"></script>
+    <script defer="true" src="{{ url_for('static',filename='js/echarts-gl.min.js') }}"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+{% endblock %}
+{% block title %}数据查询{% endblock %}
+{% block main %}
+    <img id="top" src="{{ url_for('static',filename='images/head_bg.png') }}">   {# 放置最上面的横条#}
+    <div id="datashow">
+        <div id="top_left"> {# 上面左边div，存放选择框 #}
+            <form onsubmit="return false"> {# 使用Ajax传输数据，此处组织表单自动提交 #}
+                <div>
+                    <span id="sp1">时间：</span>
+                    <select name="sel1" id="sel1">
+                        <option value="2011" selected>2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    <span id="sp2">——</span>
+                    <select name="sel2" id="sel2">
+                        <option selected value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                    </select>
+                    <span id="sp3">品类:</span>
+                    <select name="sel3" id="sel3">
+                        <option selected value="小麦">小麦</option>
+                        <option value="大豆">大豆</option>
+                        <option value="玉米">玉米</option>
+                        <option value="薯类">薯类</option>
+                        <option value="马铃薯">马铃薯</option>
+                        <option value="高粱">高粱</option>
+                        <option value="绿豆">绿豆</option>
+                        <option value="甘蔗">甘蔗</option>
+                        <option value="甜菜">甜菜</option>
+                        <option value="蔬菜">蔬菜</option>
+                    </select>
+                    <span id="sp4">指标名称:</span>
+                    <select name="sel4" id="sel4">
+                        <option value="产量">产量</option>
+                        <option value="播种面积">播种面积</option>
+                    </select>
+                    <span id="sp5">地区:</span>
+                     <select name="sel5" id="sel5">
+                         <option selected value="All">All</option>
+                         <option value="全国">全国</option>
+                         <option value="北京">北京</option>
+                         <option value="天津">天津</option>
+                         <option value="河北">河北</option>
+                         <option value="山西">山西</option>
+                         <option value="内蒙古">内蒙古</option>
+                         <option value="辽宁">辽宁</option>
+                         <option value="吉林">吉林</option>
+                         <option value="黑龙江">黑龙江</option>
+                         <option value="上海">上海</option>
+                         <option value="江苏">江苏</option>
+                         <option value="浙江">浙江</option>
+                         <option value="安徽">安徽</option>
+                         <option value="江西">江西</option>
+                         <option value="山东">山东</option>
+                         <option value="河南">河南</option>
+                         <option value="湖北">湖北</option>
+                         <option value="湖南">湖南</option>
+                         <option value="广东">广东</option>
+                         <option value="广西">广西</option>
+                         <option value="重庆">重庆</option>
+                         <option value="四川">四川</option>
+                         <option value="贵州">贵州</option>
+                         <option value="云南">云南</option>
+                         <option value="西藏">西藏</option>
+                         <option value="陕西">陕西</option>
+                         <option value="甘肃">甘肃</option>
+                         <option value="青海">青海</option>
+                         <option value="宁夏">宁夏</option>
+                         <option value="新疆">新疆</option>
+                    </select>
+                    <span id="sp6">数据来源:</span>
+                    <select name="sel6" id="sel6">
+                        <option selected>国家统计局</option>
+                    </select>
+                </div>
+                <input id="search" type="button" onclick="click1()" value="搜索"> {# 设置ajax添加点击事件 #}
+                <input id="reset" type="reset" value="重置">
+             </form>
+        </div>
+
+        <div id="top_right"> {# 上面右边div，存放一张词云图 #}</div>
+
+        <div id="content"> {# 中间的数据展示大盒子 #}
+            <table id="table" lay-filter="test"></table>
+        </div>
+
+        <div id="right_1"></div>
+        <div id="right_2"></div>
+    </div>
+{% endblock %}
